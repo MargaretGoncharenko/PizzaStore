@@ -5,21 +5,16 @@ export const Categories = () => {
     const onClickCategory = (index: number) => {
         setActiveClass(index)
     }
-    const [categories] = useState([
-        {id: 1, name: "Все"},
-        {id: 2, name: "Мясные"},
-        {id: 3, name: "Вегетарианская"},
-        {id: 4, name: "Острые"},
-        {id: 5, name: "Закрытые"},
-    ])
+    const categories = ["Все", "Мясные", "Вегетарианская", "Острые", "Закрытые"]
     return (
         <ul>
             {
-                categories.map(c => {
+                categories.map((name, index) => {
                     return (
-                        <div key={c.id}>
-                            <li onClick={() => onClickCategory(c.id)}
-                                className={activeClass == c.id ? "active" : ""}>{c.name}</li>
+                        <div key={index}>
+                            <li onClick={() => onClickCategory(index)} className={activeClass == index ? "active" : ""}>
+                                {name}
+                            </li>
                         </div>
                     )
                 })

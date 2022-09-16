@@ -1,11 +1,10 @@
-import React, {useState} from 'react';
+import React from 'react';
 import './scss/app.scss';
 import {Header} from "./Components/Header";
 import {Categories} from "./Components/Categories";
 import {Sort} from "./Components/Sort";
 import {PizzaBlock} from "./Components/PizzaBlock";
-import {v1} from "uuid";
-
+import items from "./assets/pizzas.json"
 
 export type PizzaType = {
     id: string
@@ -14,19 +13,6 @@ export type PizzaType = {
 }
 
 function App() {
-    let [pizzaList] = useState<Array<PizzaType>>([
-            {id: v1(), name: "Мексиканская", price: 500},
-            {id: v1(), name: "Гавайская", price: 800},
-            {id: v1(), name: "Чизбургер-пицца", price: 700},
-            {id: v1(), name: "Маргарита", price: 450},
-            {id: v1(), name: "Чикен-карри", price: 550},
-            {id: v1(), name: "Барбекю", price: 600},
-            {id: v1(), name: "4 сезона", price: 400},
-            {id: v1(), name: "Сырная", price: 400},
-            {id: v1(), name: "Пепперони", price: 420},
-        ]
-    )
-
     return (
         <div className="App">
             <div className="wrapper">
@@ -39,9 +25,28 @@ function App() {
                             </div>
                             <Sort/>
                         </div>
-                        <h2 className="content__title">Все пиццы</h2>
+                        <div><h2 className="content__title">Все пиццы</h2></div>
                         <div className="content__items">
-                            <PizzaBlock pizzaList={pizzaList}/>
+                            {
+                                items.map(i => {
+                                        return (
+                                            <>
+                                                <PizzaBlock id={i.id}
+                                                            key={i.id}
+                                                            title={i.title}
+                                                            price={i.price}
+                                                            imageUrl={i.imageUrl}
+                                                            types={i.types}
+                                                            sizes={i.sizes}
+                                                            category={i.category}
+                                                            rating={i.rating}
+                                                />
+                                            </>
+                                        )
+                                    }
+                                )
+                            }
+
                         </div>
                     </div>
                 </div>
@@ -51,7 +56,5 @@ function App() {
 }
 
 export default App;
-
-
 
 
