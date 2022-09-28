@@ -15,9 +15,10 @@ export const Home = () => {
                 setItems(arr)
                 setIsLoading(false)
             })
+        window.scrollTo(0, 0)
     }, [])
     return (
-        <>
+         <div className="wrapper">
             <div className="content">
                 <div className="container">
                     <div className="content__top">
@@ -26,7 +27,7 @@ export const Home = () => {
                         </div>
                         <Sort/>
                     </div>
-                    <div><h2 className="content__title">Все пиццы</h2></div>
+                    <div><h1 className="content__title">Все пиццы</h1></div>
                     <div className="content__items">
                         {
                             isLoading
@@ -53,6 +54,6 @@ export const Home = () => {
                     </div>
                 </div>
             </div>
-        </>
+        </div>
     )
 }

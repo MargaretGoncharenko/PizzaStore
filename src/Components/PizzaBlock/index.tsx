@@ -32,6 +32,7 @@ export const PizzaBlock = (props: PizzaBlockPropsType) => {
 
     const typesNames = ["тонкое", "традиционное"]
     return (
+        <div className={"pizza-block-wrapper"}>
         <div key={props.id} className="pizza-block">
             <img
                 className="pizza-block__image"
@@ -80,6 +81,7 @@ export const PizzaBlock = (props: PizzaBlockPropsType) => {
                     <i>{pizzaCount}</i>
                 </button>
             </div>
+        </div>
         </div>
     )
 }

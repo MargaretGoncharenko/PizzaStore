@@ -10,6 +10,7 @@
 
 body {
   background-color: $background;
+
 }
 
 .wrapper {
@@ -17,27 +18,62 @@ body {
   height: 100%;
   background-color: #ffffff;
   margin: 50px auto;
-  border-radius: 10px;
+  border-radius: 40px;
   max-width: 1400px;
+
+  @media (max-width: 645px) {
+    width: calc(100vw - 50px);
+    margin-top: 15px;
+  }
 }
 
 .content {
   padding: 40px 0;
 
   &__title {
-    margin: 35px 0;
+    margin: 5px;
+    padding: 50px;
   }
 
   &__items {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    margin: 15px 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 10px;
+
+    @media (max-width: 1340px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @media (max-width: 1050px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media (max-width: 740px) {
+      grid-template-columns: repeat(1, 1fr);
+    }
   }
 
   &__top {
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    @media (max-width: 1150px) {
+
+      .categories {
+        margin-top: 15px;
+        width: 100%;
+        overflow: auto;
+
+        ul {
+          width: 700px;
+        }
+      }
+    }
+    @media (max-width: 1150px) {
+      flex-direction: column-reverse;
+      align-items: end;
+    }
   }
 }
 
@@ -64,8 +100,8 @@ body {
 
   .content__title {
     display: flex;
-    align-items: center;
     font-size: 32px;
+
 
     svg {
       position: relative;
@@ -113,12 +149,13 @@ body {
     }
   }
 
+
   &__item {
     display: flex;
     width: 100%;
     border-top: 1px solid $gray-line;
-    padding-top: 30px;
-    margin-top: 30px;
+    padding-top: 5px;
+    margin-top: 5px;
 
     &-img {
       display: flex;
@@ -238,7 +275,8 @@ body {
     &-buttons {
       display: flex;
       justify-content: space-between;
-      margin-top: 40px;
+      margin: 40px 0;
+      padding-bottom: 50px;
 
       .go-back-btn {
         display: flex;
